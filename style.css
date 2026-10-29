@@ -1,0 +1,528 @@
+/* ==========================================================================
+   Animated Skill & Progress Bars - Modern Light Theme with Pastel Accents
+   ========================================================================== */
+
+/* Design Tokens & CSS Custom Properties */
+:root {
+  /* Backgrounds & Surface Colors */
+  --bg-app: #f8fafc;
+  --bg-card: #ffffff;
+  --bg-subtle: #f1f5f9;
+  --bg-track: #e2e8f0;
+
+  /* Typography Colors */
+  --text-main: #0f172a;
+  --text-muted: #64748b;
+  --text-subtle: #94a3b8;
+
+  /* Soft Pastel Accents: Green, Blue & Complementary Pastels */
+  --pastel-blue-light: #e0f2fe;
+  --pastel-blue-border: #bae6fd;
+  --pastel-blue-main: #38bdf8;
+  --pastel-blue-deep: #0284c7;
+
+  --pastel-green-light: #ecfdf5;
+  --pastel-green-border: #a7f3d0;
+  --pastel-green-main: #34d399;
+  --pastel-green-deep: #10b981;
+
+  --pastel-teal-light: #f0fdfa;
+  --pastel-teal-border: #99f6e4;
+  --pastel-teal-main: #2dd4bf;
+  --pastel-teal-deep: #0d9488;
+
+  /* Gradients for Progress Bars (Subtle & Pastel-infused) */
+  --fill-gradient-html: linear-gradient(90deg, #38bdf8 0%, #34d399 100%);
+  --fill-gradient-css: linear-gradient(90deg, #60a5fa 0%, #2dd4bf 100%);
+  --fill-gradient-js: linear-gradient(90deg, #38bdf8 0%, #10b981 100%);
+  --fill-gradient-python: linear-gradient(90deg, #2dd4bf 0%, #0284c7 100%);
+  --fill-gradient-design: linear-gradient(90deg, #34d399 0%, #38bdf8 100%);
+
+  /* Borders & Shadows */
+  --border-light: #e2e8f0;
+  --shadow-sm: 0 1px 2px 0 rgba(15, 23, 42, 0.05);
+  --shadow-card: 0 4px 6px -1px rgba(15, 23, 42, 0.07), 0 2px 4px -2px rgba(15, 23, 42, 0.05);
+  --shadow-hover: 0 10px 15px -3px rgba(15, 23, 42, 0.08), 0 4px 6px -4px rgba(15, 23, 42, 0.04);
+
+  /* Dimensions & Spacing */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-pill: 9999px;
+  --track-height: 12px;
+
+  /* Animation Timings */
+  --anim-duration: 1.4s;
+  --anim-timing: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Global Reset & Base Typography */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background-color: var(--bg-app);
+  color: var(--text-main);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Header / Hero Section */
+.app-header {
+  background-color: var(--bg-card);
+  border-bottom: 1px solid var(--border-light);
+  padding: 40px 20px 32px;
+  text-align: center;
+}
+
+.header-container {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.badge {
+  display: inline-block;
+  padding: 4px 12px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--pastel-green-deep);
+  background-color: var(--pastel-green-light);
+  border: 1px solid var(--pastel-green-border);
+  border-radius: var(--radius-pill);
+  margin-bottom: 12px;
+}
+
+.header-title {
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: var(--text-main);
+  letter-spacing: -0.02em;
+  margin-bottom: 12px;
+}
+
+.header-description {
+  font-size: 1.05rem;
+  color: var(--text-muted);
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.code-pill {
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  font-size: 0.88em;
+  background-color: var(--bg-subtle);
+  color: var(--pastel-blue-deep);
+  padding: 2px 6px;
+  border-radius: 4px;
+  border: 1px solid var(--border-light);
+}
+
+/* Main Content Area */
+.main-content {
+  flex: 1;
+  max-width: 860px;
+  width: 100%;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+/* Skills Card Container */
+.skills-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  padding: 36px 40px;
+}
+
+/* Card Header */
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--border-light);
+  margin-bottom: 32px;
+}
+
+.card-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--text-main);
+  letter-spacing: -0.01em;
+}
+
+.card-subtitle {
+  font-size: 0.92rem;
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+
+/* Replay Button */
+.btn-replay {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: var(--bg-card);
+  color: var(--pastel-blue-deep);
+  border: 1px solid var(--pastel-blue-border);
+  padding: 8px 16px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-replay:hover {
+  background-color: var(--pastel-blue-light);
+  border-color: var(--pastel-blue-main);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-hover);
+}
+
+.btn-replay:active {
+  transform: translateY(0);
+}
+
+.btn-replay:focus-visible {
+  outline: 2px solid var(--pastel-blue-deep);
+  outline-offset: 2px;
+}
+
+.icon-replay {
+  width: 16px;
+  height: 16px;
+  transition: transform 0.4s ease;
+}
+
+.btn-replay:hover .icon-replay {
+  transform: rotate(180deg);
+}
+
+/* Skills List */
+.skills-list {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+/* Single Skill Item */
+.skill-item {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.skill-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.skill-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.skill-icon-wrap {
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background-color: var(--bg-subtle);
+  border: 1px solid var(--border-light);
+}
+
+.skill-icon-wrap svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* Custom Soft Pastel Icon Accents */
+.icon-html {
+  background-color: var(--pastel-blue-light);
+  color: var(--pastel-blue-deep);
+  border-color: var(--pastel-blue-border);
+}
+
+.icon-css {
+  background-color: var(--pastel-teal-light);
+  color: var(--pastel-teal-deep);
+  border-color: var(--pastel-teal-border);
+}
+
+.icon-js {
+  background-color: var(--pastel-green-light);
+  color: var(--pastel-green-deep);
+  border-color: var(--pastel-green-border);
+}
+
+.icon-python {
+  background-color: var(--pastel-blue-light);
+  color: var(--pastel-blue-deep);
+  border-color: var(--pastel-blue-border);
+}
+
+.icon-design {
+  background-color: var(--pastel-green-light);
+  color: var(--pastel-green-deep);
+  border-color: var(--pastel-green-border);
+}
+
+.skill-name {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-main);
+  line-height: 1.2;
+}
+
+.skill-tag {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+/* Percentage Display Beside Progress Bar */
+.skill-val-container {
+  display: flex;
+  align-items: baseline;
+}
+
+.skill-percentage {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, monospace;
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--pastel-blue-deep);
+  min-width: 48px;
+  text-align: right;
+  letter-spacing: -0.01em;
+}
+
+/* Progress Track */
+.progress-track {
+  width: 100%;
+  height: var(--track-height);
+  background-color: var(--bg-track);
+  border-radius: var(--radius-pill);
+  overflow: hidden;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.05);
+  position: relative;
+}
+
+/* Progress Fill (Animated Bar) */
+.progress-fill {
+  height: 100%;
+  width: 0%;
+  border-radius: var(--radius-pill);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: width var(--anim-duration) var(--anim-timing);
+  will-change: width;
+}
+
+/* Skill Specific Gradients */
+.fill-html {
+  background: var(--fill-gradient-html);
+}
+
+.fill-css {
+  background: var(--fill-gradient-css);
+}
+
+.fill-js {
+  background: var(--fill-gradient-js);
+}
+
+.fill-python {
+  background: var(--fill-gradient-python);
+}
+
+.fill-design {
+  background: var(--fill-gradient-design);
+}
+
+/* Feature Highlights Grid */
+.features-summary {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 40px;
+  padding-top: 32px;
+  border-top: 1px solid var(--border-light);
+}
+
+.summary-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 16px;
+  background-color: var(--bg-app);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+}
+
+.summary-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.summary-icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+.icon-pastel-green {
+  background-color: var(--pastel-green-light);
+  color: var(--pastel-green-deep);
+  border: 1px solid var(--pastel-green-border);
+}
+
+.icon-pastel-blue {
+  background-color: var(--pastel-blue-light);
+  color: var(--pastel-blue-deep);
+  border: 1px solid var(--pastel-blue-border);
+}
+
+.icon-pastel-teal {
+  background-color: var(--pastel-teal-light);
+  color: var(--pastel-teal-deep);
+  border: 1px solid var(--pastel-teal-border);
+}
+
+.summary-title {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 2px;
+}
+
+.summary-desc {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+/* Footer */
+.app-footer {
+  margin-top: auto;
+  border-top: 1px solid var(--border-light);
+  background-color: var(--bg-card);
+  padding: 24px 20px;
+  text-align: center;
+}
+
+.footer-container {
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.footer-text {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+/* ==========================================================================
+   Accessibility: Reduced Motion Preference Support
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .progress-fill {
+    transition: none !important;
+  }
+
+  .btn-replay:hover .icon-replay {
+    transform: none !important;
+  }
+}
+
+/* ==========================================================================
+   Responsive Breakpoints
+   ========================================================================== */
+@media (max-width: 768px) {
+  .skills-card {
+    padding: 28px 24px;
+  }
+
+  .features-summary {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .header-title {
+    font-size: 1.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .app-header {
+    padding: 28px 16px 20px;
+  }
+
+  .header-title {
+    font-size: 1.5rem;
+  }
+
+  .header-description {
+    font-size: 0.95rem;
+  }
+
+  .main-content {
+    margin: 20px auto;
+    padding: 0 12px;
+  }
+
+  .skills-card {
+    padding: 20px 16px;
+  }
+
+  .card-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .btn-replay {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .skill-name {
+    font-size: 0.95rem;
+  }
+
+  .skill-tag {
+    font-size: 0.72rem;
+  }
+
+  .skill-percentage {
+    font-size: 1rem;
+  }
+}
+

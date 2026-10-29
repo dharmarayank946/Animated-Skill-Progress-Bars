@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A modern, responsive, animated skill and progress bars application built with semantic HTML5, CSS3, and vanilla JavaScript.">
+  <title>Skill & Progress Bars Showcase</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Header / Hero Section -->
+  <header class="app-header">
+    <div class="header-container">
+      <span class="badge">Performance & Accessibility</span>
+      <h1 class="header-title">Technical Competencies</h1>
+      <p class="header-description">
+        Smoothly animated progress indicators powered by vanilla JavaScript and the
+        <code class="code-pill">IntersectionObserver</code> API. Configured via custom
+        <code class="code-pill">data-*</code> attributes with native reduced-motion accessibility.
+      </p>
+    </div>
+  </header>
+
+  <!-- Main Content Container -->
+  <main class="main-content">
+    <section class="skills-card" id="skills-section" aria-labelledby="skills-heading">
+      <div class="card-header">
+        <div>
+          <h2 id="skills-heading" class="card-title">Core Development Proficiencies</h2>
+          <p class="card-subtitle">Viewport-triggered animations configured to run once upon entering the screen.</p>
+        </div>
+        <div class="header-controls">
+          <button id="replay-btn" class="btn-replay" type="button" aria-label="Replay progress bar animation">
+            <svg class="icon-replay" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/>
+            </svg>
+            Replay Animation
+          </button>
+        </div>
+      </div>
+
+      <!-- Skills Progress Bar List -->
+      <div class="skills-list">
+        
+        <!-- Skill 1: HTML5 -->
+        <article class="skill-item" data-skill="html" data-percentage="95">
+          <div class="skill-meta">
+            <div class="skill-info">
+              <div class="skill-icon-wrap icon-html" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M4.12 2h15.76l-1.43 16.14L12 21.03l-6.45-2.89L4.12 2zm13.1 4.7H6.78l.26 2.92h9.91l-.54 6.1-4.41 1.23-4.42-1.23-.3-3.32h2.46l.15 1.58 2.11.57 2.11-.57.24-2.73H7.31L6.5 4.17h11l-.28 2.53z"/>
+                </svg>
+              </div>
+              <div>
+                <h3 class="skill-name">HTML</h3>
+                <span class="skill-tag">Semantic Markup & Accessibility</span>
+              </div>
+            </div>
+            <div class="skill-val-container">
+              <span class="skill-percentage" id="percent-html" aria-live="polite">0%</span>
+            </div>
+          </div>
+          <div class="progress-track" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="HTML proficiency: 95%" id="progress-html">
+            <div class="progress-fill fill-html" data-target="95"></div>
+          </div>
+        </article>
+
+        <!-- Skill 2: CSS3 -->
+        <article class="skill-item" data-skill="css" data-percentage="90">
+          <div class="skill-meta">
+            <div class="skill-info">
+              <div class="skill-icon-wrap icon-css" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M4.12 2h15.76l-1.43 16.14L12 21.03l-6.45-2.89L4.12 2zm13.06 4.7H6.78l.26 2.92h6.99l-.26 2.92H7.31l.27 2.92h6.16l-.38 4.29-1.36.37-1.36-.37-.09-1.02H8.49l.18 2.22 3.33.92 3.33-.92.83-9.35H7.04L6.78 4.17h10.66l-.26 2.53z"/>
+                </svg>
+              </div>
+              <div>
+                <h3 class="skill-name">CSS</h3>
+                <span class="skill-tag">Modern Flexbox, Grid & Keyframes</span>
+              </div>
+            </div>
+            <div class="skill-val-container">
+              <span class="skill-percentage" id="percent-css" aria-live="polite">0%</span>
+            </div>
+          </div>
+          <div class="progress-track" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="CSS proficiency: 90%" id="progress-css">
+            <div class="progress-fill fill-css" data-target="90"></div>
+          </div>
+        </article>
+
+        <!-- Skill 3: JavaScript -->
+        <article class="skill-item" data-skill="javascript" data-percentage="85">
+          <div class="skill-meta">
+            <div class="skill-info">
+              <div class="skill-icon-wrap icon-js" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M3 3h18v18H3V3zm13.45 13.9c1.08 0 1.87-.49 2.22-1.33l-1.63-.98c-.22.42-.56.67-.97.67-.5 0-.82-.29-.82-.87v-5.26h-2.12v5.33c0 1.55.99 2.44 2.44 2.44zm-6.28.02c1.37 0 2.23-.74 2.23-2.07 0-1.22-.74-1.81-1.92-2.31l-.47-.2c-.62-.26-.88-.51-.88-.93 0-.46.36-.78.93-.78.53 0 .86.22 1.13.68l1.63-1.05c-.56-.99-1.48-1.36-2.74-1.36-1.5 0-2.45.89-2.45 2.19 0 1.2.73 1.84 1.86 2.32l.47.2c.67.29.95.56.95 1 0 .54-.42.87-1.07.87-.71 0-1.12-.37-1.42-.92l-1.66 1.01c.56 1.11 1.57 1.35 2.42 1.35z"/>
+                </svg>
+              </div>
+              <div>
+                <h3 class="skill-name">JavaScript</h3>
+                <span class="skill-tag">ES6+, DOM & Async Programming</span>
+              </div>
+            </div>
+            <div class="skill-val-container">
+              <span class="skill-percentage" id="percent-js" aria-live="polite">0%</span>
+            </div>
+          </div>
+          <div class="progress-track" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="JavaScript proficiency: 85%" id="progress-js">
+            <div class="progress-fill fill-js" data-target="85"></div>
+          </div>
+        </article>
+
+        <!-- Skill 4: Python -->
+        <article class="skill-item" data-skill="python" data-percentage="80">
+          <div class="skill-meta">
+            <div class="skill-info">
+              <div class="skill-icon-wrap icon-python" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M11.91 2c-3.1 0-2.91 1.34-2.91 1.34l.03 1.39h2.93v.42H6.9s-1.88.21-1.88 2.76.01 2.58.01 2.58h1.03v-1.29s-.06-1.55 1.52-1.55h5.36s1.46.02 1.46-1.43V3.43S14.65 2 11.91 2zm-1.07.88a.65.65 0 1 1 0 1.3.65.65 0 0 1 0-1.3zm1.25 19.12c3.1 0 2.91-1.34 2.91-1.34l-.03-1.39h-2.93v-.42h5.06s1.88-.21 1.88-2.76-.01-2.58-.01-2.58h-1.03v1.29s.06 1.55-1.52 1.55h-5.36s-1.46-.02-1.46 1.43v2.84s-.25 1.43 2.49 1.43zm1.07-.88a.65.65 0 1 1 0-1.3.65.65 0 0 1 0 1.3z"/>
+                </svg>
+              </div>
+              <div>
+                <h3 class="skill-name">Python</h3>
+                <span class="skill-tag">Scripting, Automation & Logic</span>
+              </div>
+            </div>
+            <div class="skill-val-container">
+              <span class="skill-percentage" id="percent-python" aria-live="polite">0%</span>
+            </div>
+          </div>
+          <div class="progress-track" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Python proficiency: 80%" id="progress-python">
+            <div class="progress-fill fill-python" data-target="80"></div>
+          </div>
+        </article>
+
+        <!-- Skill 5: UI/UX Design -->
+        <article class="skill-item" data-skill="ui-ux" data-percentage="88">
+          <div class="skill-meta">
+            <div class="skill-info">
+              <div class="skill-icon-wrap icon-design" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+              </div>
+              <div>
+                <h3 class="skill-name">UI/UX Design</h3>
+                <span class="skill-tag">Wireframing, Aesthetics & Design Systems</span>
+              </div>
+            </div>
+            <div class="skill-val-container">
+              <span class="skill-percentage" id="percent-ui-ux" aria-live="polite">0%</span>
+            </div>
+          </div>
+          <div class="progress-track" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="UI/UX Design proficiency: 88%" id="progress-ui-ux">
+            <div class="progress-fill fill-design" data-target="88"></div>
+          </div>
+        </article>
+
+      </div>
+
+      <!-- Feature Architecture / Technical Highlights -->
+      <div class="features-summary">
+        <div class="summary-card">
+          <div class="summary-icon icon-pastel-green" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+          </div>
+          <div>
+            <h4 class="summary-title">IntersectionObserver</h4>
+            <p class="summary-desc">Animations dynamically trigger only when items enter the active viewport.</p>
+          </div>
+        </div>
+
+        <div class="summary-card">
+          <div class="summary-icon icon-pastel-blue" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+          </div>
+          <div>
+            <h4 class="summary-title">Once-per-visit Trigger</h4>
+            <p class="summary-desc">Unobserves immediately after playback to prevent redundant CPU cycles.</p>
+          </div>
+        </div>
+
+        <div class="summary-card">
+          <div class="summary-icon icon-pastel-teal" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+              <line x1="8" y1="21" x2="16" y2="21"></line>
+              <line x1="12" y1="17" x2="12" y2="21"></line>
+            </svg>
+          </div>
+          <div>
+            <h4 class="summary-title">Configurable data-*</h4>
+            <p class="summary-desc">Target percentages are decoupled in HTML attributes for instant customization.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Clean, Unbranded Footer -->
+  <footer class="app-footer">
+    <div class="footer-container">
+      <p class="footer-text">Pure HTML5, CSS3, and Vanilla JavaScript &bull; Accessible &bull; Responsive</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
